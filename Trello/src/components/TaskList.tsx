@@ -10,10 +10,7 @@ import TaskListItem from "./TaskListItem";
 import { useState } from "react";
 
 export default function TaskList() {
-  const [tasks, setTasks] = useState([
-    { description: "First Task" },
-    { description: "Second Task" },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   const [newTask, setNewTask] = useState("");
 
