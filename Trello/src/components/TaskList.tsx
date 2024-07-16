@@ -16,7 +16,7 @@ export default function TaskList() {
 
   const createTask = () => {
     console.warn("Create: ", newTask);
-    setTasks([...tasks, { description: newTask }]);
+    setTasks([...tasks, { id: 1, description: newTask }]);
     setNewTask("");
   };
 
