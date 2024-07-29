@@ -8,15 +8,20 @@ import {
 } from "react-native";
 import TaskListItem from "./TaskListItem";
 import { useState } from "react";
+import { useRealm, useQuery } from "@realm/react";
+import { Task } from "../models/Task";
 
 export default function TaskList() {
-  const [tasks, setTasks] = useState([]);
+  const realm = useRealm();
+  const tasks = useQuery(Task);
 
   const [newTask, setNewTask] = useState("");
 
   const createTask = () => {
-    console.warn("Create: ", newTask);
-    setTasks([...tasks, { id: 1, description: newTask }]);
+    realm.write(() => {
+      realm.create(Task, { description: newTask, user_id: "123" });
+    });
+
     setNewTask("");
   };
 
