@@ -13,14 +13,14 @@ export default function RealmCustomProvider({ children }: PropsWithChildren) {
           schema={[Task]}
           sync={{
             flexible: true,
-            onError: (_session, error) => {
-              console.log(error);
-            },
             initialSubscriptions: {
               update(subs, realm) {
                 subs.add(realm.objects("Task"));
               },
-              rerunOnOpen: true,
+              //rerunOnOpen: true,
+            },
+            onError: (_session, error) => {
+              console.log(error);
             },
           }}
         >
