@@ -4,6 +4,7 @@ import { Stack, Link } from "expo-router";
 import { ThemeProvider, DarkTheme } from "@react-navigation/native";
 import Realm from "../providers/Realm";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 export default function RootLayout() {
   return (
@@ -12,9 +13,14 @@ export default function RootLayout() {
         <Stack
           screenOptions={{
             headerRight: () => (
-              <Link href="/login">
-                <FontAwesome name="user-circle-o" size={24} color="gray" />
-              </Link>
+              <View style={{ gap: 10, flexDirection: "row" }}>
+                <Link href="/login">
+                  <FontAwesome name="sign-in" size={24} color="lightgray" />
+                </Link>
+                <Link href="/profile">
+                  <FontAwesome5 name="house-user" size={24} color="lightgray" />
+                </Link>
+              </View>
             ),
           }}
         />
